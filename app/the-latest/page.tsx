@@ -18,7 +18,7 @@ export default function TheLatest() {
             The Latest
           </h1>
           <p className="text-muted-foreground font-mono text-sm md:text-base max-w-3xl leading-relaxed">
-            The latest tech news about the world's best (and sometimes worst) hardware, apps, and much more. From top companies like Google and Apple to tiny startups vying for your attention.
+            The latest tech news about the world&apos;s best (and sometimes worst) hardware, apps, and much more. From top companies like Google and Apple to tiny startups vying for your attention.
           </p>
         </div>
 

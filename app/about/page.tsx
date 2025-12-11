@@ -25,7 +25,7 @@ export default function About() {
             A media company like no other
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-display uppercase leading-tight max-w-5xl">
-            SciVox is about the world's best (and sometimes worst) happenings in tech, science, business, and more.
+            SciVox is about the world&apos;s best (and sometimes worst) happenings in tech, science, business, and more.
           </h1>
         </div>
       </section>
