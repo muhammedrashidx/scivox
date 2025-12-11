@@ -35,11 +35,28 @@ export type PostWithContent = {
   Content: React.ComponentType;
 };
 
+export type EpisodeWithContent = {
+  slug: string;
+  title: string;
+  date: string;
+  duration: string;
+  image: string;
+  excerpt: string;
+  Content: React.ComponentType;
+};
+
+export type ReviewWithContent = PostWithContent;
+export type ExplainerWithContent = PostWithContent;
+
 function shapePosts(mod: MdxModule) {
   return { ...mod.metadata, Content: mod.default } as PostWithContent;
 }
 
-export const posts = [posts1, posts2, posts3, posts4, posts5, posts6].map(shapePosts);
-export const reviews = [reviews1, reviews2].map(shapePosts);
-export const episodes = [podcasts1, podcasts2, podcasts3, podcasts4].map(shapePosts);
-export const explainers = [explainers1, explainers2].map(shapePosts);
+function shapeEpisodes(mod: MdxModule) {
+  return { ...mod.metadata, Content: mod.default } as EpisodeWithContent;
+}
+
+export const posts: PostWithContent[] = [posts1, posts2, posts3, posts4, posts5, posts6].map(shapePosts);
+export const reviews: ReviewWithContent[] = [reviews1, reviews2].map(shapePosts);
+export const episodes: EpisodeWithContent[] = [podcasts1, podcasts2, podcasts3, podcasts4].map(shapeEpisodes);
+export const explainers: ExplainerWithContent[] = [explainers1, explainers2].map(shapePosts);

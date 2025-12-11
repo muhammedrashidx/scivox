@@ -31,7 +31,12 @@ function generateImports(contentType, files) {
 function generateArray(contentType, count) {
   const items = Array.from({ length: count }, (_, i) => `${contentType}${i + 1}`);
   const exportName = exportNames[contentType] || contentType;
-  return `export const ${exportName} = [${items.join(', ')}].map(shapePosts);`;
+  const shapeFunction = contentType === 'podcasts' ? 'shapeEpisodes' : 'shapePosts';
+  const typeName = contentType === 'podcasts' ? 'EpisodeWithContent[]' : 
+                   contentType === 'reviews' ? 'ReviewWithContent[]' :
+                   contentType === 'explainers' ? 'ExplainerWithContent[]' :
+                   'PostWithContent[]';
+  return `export const ${exportName}: ${typeName} = [${items.join(', ')}].map(${shapeFunction});`;
 }
 
 let imports = [];
@@ -66,11 +71,33 @@ export type PostWithContent = {
   Content: React.ComponentType;
 };
 
+export type EpisodeWithContent = {
+  slug: string;
+  title: string;
+  date: string;
+  duration: string;
+  image: string;
+  excerpt: string;
+  Content: React.ComponentType;
+};
+
+export type ReviewWithContent = PostWithContent;
+export type ExplainerWithContent = PostWithContent;
+
 function shapePosts(mod: MdxModule) {
   return { ...mod.metadata, Content: mod.default } as PostWithContent;
 }
 
-${arrays.join('\n')}
+function shapeEpisodes(mod: MdxModule) {
+  return { ...mod.metadata, Content: mod.default } as EpisodeWithContent;
+}
+
+${arrays.map(arr => {
+  if (arr.includes('export const episodes')) {
+    return arr.replace('shapePosts', 'shapeEpisodes');
+  }
+  return arr;
+}).join('\n')}
 `;
 
 fs.writeFileSync(outputFile, content, 'utf-8');
