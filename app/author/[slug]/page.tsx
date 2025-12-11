@@ -169,8 +169,9 @@ const defaultAuthor = {
   articles: [],
 };
 
-export default function Author({ params }: { params: { slug: string } }) {
-  const author = params.slug && authorsData[params.slug] ? authorsData[params.slug] : defaultAuthor;
+export default async function Author({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const author = slug && authorsData[slug] ? authorsData[slug] : defaultAuthor;
 
   return (
     <div className="min-h-screen bg-background">

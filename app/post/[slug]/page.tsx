@@ -1,16 +1,18 @@
 "use client";
 
+import { use } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { posts } from "@/content";
+import { posts, type PostWithContent } from "@/content";
 import { getAuthorBySlug } from "@/content/authors";
 
-export default function Post({ params }: { params: { slug: string } }) {
-  const post = posts.find((p) => p.slug === params.slug) ?? posts[0];
+export default function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const post = (posts.find((p) => p.slug === slug) ?? posts[0]) as PostWithContent;
   const author = getAuthorBySlug(post.authorSlug);
-  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3) as PostWithContent[];
 
   return (
     <div className="min-h-screen bg-background">
