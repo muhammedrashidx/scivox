@@ -30,7 +30,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
 
         {/* Featured Image */}
         <div className="max-w-5xl mx-auto mb-8">
-          <div className="relative aspect-video rounded-xl overflow-hidden">
+          <div className="relative aspect-video overflow-hidden">
             <Image 
               src={post.image} 
               alt={post.title}
@@ -82,7 +82,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
                 href={`/post/${article.slug}`}
                 className="group article-card block"
               >
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-3">
+                <div className="relative aspect-[4/3] overflow-hidden mb-3">
                   <Image 
                     src={article.image} 
                     alt={article.title}

@@ -16,15 +16,15 @@ interface ReviewCardProps {
 const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: ReviewCardProps) => {
   return (
     <Link href={slug ? `/post/${slug}` : "#"} className="block">
-      <article className="article-card cursor-pointer group">
+      <article className="article-card cursor-pointer group hover:scale-100">
         {/* Image Container */}
-        <div className="relative aspect-[16/10] rounded-xl overflow-hidden">
+        <div className="relative aspect-[16/10] overflow-hidden isolate">
           <Image 
             src={image} 
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
           
           {/* Gradient overlay only at bottom for text readability */}

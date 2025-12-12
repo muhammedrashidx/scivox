@@ -70,7 +70,7 @@ export default function TopicScience() {
               className="group block"
             >
               {/* Image Container */}
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image 
                   src={article.image} 
                   alt={article.title}
@@ -123,7 +123,7 @@ export default function TopicScience() {
               {/* Content on the left */}
               <div className="flex-1">
                 <span className="category-badge mb-2">{article.category}</span>
-                <h3 className="font-sans font-bold text-[24px] leading-[29px] mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-sans font-extrabold text-[24px] leading-[120%] mb-2 group-hover:text-primary transition-colors tracking-[-1px] max-w-[385px]">
                   {article.title}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ export default function TopicScience() {
               </div>
               
               {/* Small thumbnail on the right */}
-              <div className="relative w-[227px] h-[160px] flex-shrink-0 rounded-lg overflow-hidden">
+              <div className="relative w-[227px] h-[160px] flex-shrink-0 overflow-hidden">
                 <Image 
                   src={article.image} 
                   alt={article.title}

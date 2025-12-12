@@ -21,7 +21,7 @@ const Header = () => {
               alt="SciVox"
               width={260}
               height={78}
-              className="h-20 w-auto max-w-[260px] object-contain rounded-lg"
+              className="h-20 w-auto max-w-[260px] object-contain"
               priority
             />
             <span className="text-xl md:text-2xl font-bold font-sans leading-none text-foreground">

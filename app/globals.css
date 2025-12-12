@@ -157,6 +157,11 @@
   .date-text {
     @apply font-caption text-xs text-muted-foreground;
   }
+
+  /* Prevent layout shift for grid layouts */
+  .grid {
+    content-visibility: auto;
+  }
 }
 
 @layer utilities {

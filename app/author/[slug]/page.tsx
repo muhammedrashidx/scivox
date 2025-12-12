@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { Play } from "lucide-react";
 
 // Author data
 const authorsData: Record<string, {
@@ -188,7 +187,7 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
           
           <div className="flex items-start gap-6">
             {/* Author Image */}
-            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0">
+            <div className="relative w-20 h-20 md:w-24 md:h-24 overflow-hidden flex-shrink-0">
               <Image 
                 src={author.image} 
                 alt={author.name}
@@ -214,7 +213,7 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
                 className="group block"
               >
                 {/* Image with overlapping text */}
-                <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <Image 
                     src={article.image} 
                     alt={article.title}
@@ -225,13 +224,6 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
                   
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-12 h-12 rounded-full bg-foreground/20 backdrop-blur-sm flex items-center justify-center">
-                      <Play size={20} className="text-foreground ml-0.5" fill="currentColor" />
-                    </div>
-                  </div>
 
                   {/* Category - on the image */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">

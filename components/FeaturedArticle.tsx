@@ -17,15 +17,15 @@ interface FeaturedArticleProps {
 const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, date, slug }: FeaturedArticleProps) => {
   return (
     <Link href={slug ? `/post/${slug}` : "#"} className="block">
-      <article className="relative group cursor-pointer animate-fade-in">
+      <article className="relative group cursor-pointer animate-fade-in hover:scale-100">
         {/* Image Container */}
-        <div className="relative aspect-[4/3] lg:aspect-[16/9] rounded-xl overflow-hidden">
+        <div className="relative aspect-[4/3] lg:aspect-[16/9] overflow-hidden isolate">
           <Image 
             src={image} 
             alt={title}
             fill
             sizes="(max-width: 1024px) 100vw, 66vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
           
           {/* Gradient overlay only at bottom for text readability */}

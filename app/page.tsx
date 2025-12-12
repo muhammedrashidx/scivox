@@ -38,7 +38,7 @@ export default function Home() {
         {/* Reviews Section (only first two) */}
         <section className="mb-12 lg:mb-16">
           <SectionHeader title="Reviews" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 min-h-0">
             {reviews.slice(0, 2).map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}

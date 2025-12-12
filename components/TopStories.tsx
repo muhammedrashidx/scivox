@@ -1,4 +1,3 @@
-import { Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,9 +17,10 @@ interface TopStoriesProps {
 const TopStories = ({ stories }: TopStoriesProps) => {
   return (
     <aside className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-      <h3 className="text-primary font-mono text-sm uppercase tracking-wider mb-6">Top Stories</h3>
+      <h3 className="text-primary font-mono text-sm uppercase tracking-wider mb-4">Top Stories</h3>
+      <div className="border-b border-border mb-6"></div>
       
-      <div className="space-y-0">
+      <div className="space-y-0 -mt-4">
         {stories.map((story, index) => (
           <Link 
             key={index}
@@ -29,7 +29,7 @@ const TopStories = ({ stories }: TopStoriesProps) => {
             style={{ animationDelay: `${0.1 * (index + 1)}s` }}
           >
             <div className="flex-1 min-w-0">
-              <h4 className="font-sans font-bold text-[20px] leading-[24px] mb-2 group-hover:text-primary transition-colors line-clamp-3">
+              <h4 className="font-sans font-bold text-[20px] leading-[120%] tracking-[-1px] mb-2 text-foreground dark:text-white group-hover:text-primary transition-colors line-clamp-3">
                 {story.title}
               </h4>
               <div className="flex flex-col gap-1">
@@ -38,7 +38,7 @@ const TopStories = ({ stories }: TopStoriesProps) => {
               </div>
             </div>
             
-            <div className="relative w-[128px] h-[96px] flex-shrink-0 rounded overflow-hidden">
+            <div className="relative w-[128px] h-[96px] flex-shrink-0 overflow-hidden">
               <Image 
                 src={story.image} 
                 alt={story.title}
@@ -46,11 +46,6 @@ const TopStories = ({ stories }: TopStoriesProps) => {
                 sizes="128px"
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-6 h-6 rounded-full bg-background/80 flex items-center justify-center">
-                  <Play size={10} fill="currentColor" className="ml-0.5" />
-                </div>
-              </div>
             </div>
           </Link>
         ))}

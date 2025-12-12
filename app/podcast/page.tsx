@@ -31,7 +31,7 @@ export default function Podcast() {
               className="group flex items-center gap-4 md:gap-8 py-6 border-b border-border hover:border-primary transition-colors duration-200"
             >
               {/* Episode Image */}
-              <div className="relative w-[160px] h-[160px] flex-shrink-0 overflow-hidden rounded-lg bg-primary/20">
+              <div className="relative w-[160px] h-[160px] flex-shrink-0 overflow-hidden bg-primary/20">
                 <Image 
                   src={episode.image} 
                   alt={episode.title}
