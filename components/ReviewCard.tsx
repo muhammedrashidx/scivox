@@ -24,6 +24,7 @@ const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: 
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
           

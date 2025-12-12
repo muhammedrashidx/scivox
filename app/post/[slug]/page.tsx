@@ -36,6 +36,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
               alt={post.title}
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
+              priority
               className="object-cover"
             />
           </div>
@@ -50,6 +51,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
                 alt={author?.name ?? post.author}
                 width={40}
                 height={40}
+                loading="lazy"
                 className="w-10 h-10 rounded-full object-cover"
               />
               <span className="font-mono text-sm">{author?.name ?? post.author}</span>
@@ -88,6 +90,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
                     alt={article.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

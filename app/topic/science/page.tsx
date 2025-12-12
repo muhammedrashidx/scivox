@@ -76,6 +76,8 @@ export default function TopicScience() {
                   alt={article.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : "lazy"}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
@@ -144,6 +146,7 @@ export default function TopicScience() {
                   alt={article.title}
                   fill
                   sizes="227px"
+                  loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

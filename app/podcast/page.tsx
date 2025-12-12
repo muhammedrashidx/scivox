@@ -37,6 +37,7 @@ export default function Podcast() {
                   alt={episode.title}
                   fill
                   sizes="160px"
+                  loading={index === 0 ? "eager" : "lazy"}
                   className="object-cover"
                 />
                 {/* Play Button Overlay */}

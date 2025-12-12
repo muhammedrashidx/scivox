@@ -49,6 +49,7 @@ export default function TheLatest() {
                     alt={article.title}
                     fill
                     sizes="227px"
+                    loading="lazy"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

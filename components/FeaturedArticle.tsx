@@ -25,6 +25,7 @@ const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, 
             alt={title}
             fill
             sizes="(max-width: 1024px) 100vw, 66vw"
+            priority
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
           
