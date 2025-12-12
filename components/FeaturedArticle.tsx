@@ -39,7 +39,7 @@ const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, 
         
         {/* Title - positioned to overlap more into the image */}
         <div className="relative -mt-12 lg:-mt-16 px-6 lg:px-8 z-20 max-w-3xl">
-          <h2 className="text-3xl lg:text-5xl font-black font-display uppercase leading-tight mb-4 text-foreground drop-shadow-md">
+          <h2 className="text-3xl lg:text-5xl font-black font-display uppercase leading-tight mb-4 text-foreground drop-shadow-md group-hover:underline">
             {title}
           </h2>
           <p className="text-muted-foreground font-caption text-sm lg:text-base mb-4 max-w-2xl leading-relaxed">

@@ -6,10 +6,10 @@ export type Author = {
 };
 
 export const authors: Author[] = [
-  { name: "Lena Ortiz", slug: "lena-ortiz", role: "Editor in Chief", image: "/assets/authors/1.jpg" },
-  { name: "Samir Desai", slug: "samir-desai", role: "Executive Editor", image: "/assets/authors/2.jpg" },
-  { name: "Priya Nandakumar", slug: "priya-nandakumar", role: "Senior Writer", image: "/assets/authors/3.jpg" },
-  { name: "Hannah Lee", slug: "hannah-lee", role: "Science Editor", image: "/assets/authors/4.jpg" },
+  { name: "Muhammed Rashid", slug: "lena-ortiz", role: "Editor in Chief", image: "/assets/authors/1.jpg" },
+  { name: "Aslam Villan", slug: "samir-desai", role: "Executive Editor", image: "/assets/authors/2.jpg" },
+  { name: "Siva Prabhakar", slug: "priya-nandakumar", role: "Senior Writer", image: "/assets/authors/3.jpg" },
+  { name: "Dipin Thacharakkal", slug: "hannah-lee", role: "Science Editor", image: "/assets/authors/4.jpg" },
 ];
 
 export function getAuthorBySlug(slug: string) {

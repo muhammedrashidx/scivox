@@ -6,7 +6,7 @@ interface SectionHeaderProps {
 const SectionHeader = ({ title, showSeeAll = true }: SectionHeaderProps) => {
   return (
     <div className="section-header">
-      <h2 className="text-2xl font-bold font-display">{title}</h2>
+      <h2 className="font-sans font-bold text-[32px] leading-[38px] text-foreground dark:text-white">{title}</h2>
       {showSeeAll && (
         <a 
           href="#" 

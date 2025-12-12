@@ -90,7 +90,7 @@ export default function TopicScience() {
               
               {/* Title - positioned to overlap more into the image */}
               <div className="relative -mt-10 lg:-mt-14 px-4 z-20 max-w-2xl">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase leading-tight text-foreground drop-shadow-md">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase leading-tight text-foreground drop-shadow-md group-hover:underline">
                   {article.title}
                 </h3>
               </div>
@@ -123,7 +123,7 @@ export default function TopicScience() {
               {/* Content on the left */}
               <div className="flex-1">
                 <span className="category-badge mb-2">{article.category}</span>
-                <h3 className="font-sans font-extrabold text-[24px] leading-[120%] mb-2 group-hover:text-primary transition-colors tracking-[-1px] max-w-[385px]">
+                <h3 className="font-sans font-extrabold text-[24px] leading-[120%] mb-2 group-hover:underline transition-colors tracking-[-1px] max-w-[385px]">
                   {article.title}
                 </h3>
                 <div className="flex items-center gap-2">

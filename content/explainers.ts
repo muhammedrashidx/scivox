@@ -24,7 +24,7 @@ export const explainers: Explainer[] = [
     slug: "fusion-101",
     title: "Fusion 101: what changes next",
     category: "Explainers",
-    author: "Hannah Lee",
+    author: "Dipin Thacharakkal",
     authorSlug: "hannah-lee",
     date: "Jan 7, 2025",
     image: "/assets/explainers/2.jpg",

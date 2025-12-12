@@ -38,7 +38,7 @@ const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: 
         
         {/* Title - positioned to overlap more into the image */}
         <div className="relative -mt-6 lg:-mt-10 px-4 z-20 max-w-xl">
-          <h3 className="font-black font-display text-2xl lg:text-3xl uppercase leading-tight mb-3 text-foreground drop-shadow-md">
+          <h3 className="font-black font-display text-2xl lg:text-3xl uppercase leading-tight mb-3 text-foreground drop-shadow-md group-hover:underline">
             {title}
           </h3>
         </div>

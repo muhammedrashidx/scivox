@@ -49,7 +49,7 @@ export default function Podcast() {
 
               {/* Episode Info */}
               <div className="flex-1 min-w-0">
-                <h3 className="font-sans font-bold text-[24px] leading-[29px] mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-sans font-bold text-[24px] leading-[29px] mb-2 group-hover:underline transition-colors">
                   {episode.title}
                 </h3>
                 <div className="flex items-center gap-2 flex-wrap">

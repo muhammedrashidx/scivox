@@ -35,7 +35,7 @@ export default function TheLatest() {
                   <span className="text-accent font-mono text-xs uppercase tracking-wider mb-2 block">
                     {article.category}
                   </span>
-                  <h3 className="font-sans font-extrabold text-[24px] leading-[120%] mb-3 group-hover:text-primary transition-colors tracking-[-1px] max-w-[385px]">
+                  <h3 className="font-sans font-extrabold text-[24px] leading-[120%] mb-3 group-hover:underline transition-colors tracking-[-1px] max-w-[385px]">
                     {article.title}
                   </h3>
                   <div className="flex items-center gap-2">
@@ -71,7 +71,7 @@ export default function TheLatest() {
                       <div className="w-0 h-0 border-l-[6px] border-l-accent-foreground border-y-[4px] border-y-transparent ml-0.5" />
                     </div>
                     <div>
-                      <h3 className="font-sans font-bold text-sm leading-tight mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="font-sans font-bold text-sm leading-tight mb-1 group-hover:underline transition-colors">
                         {episode.title}
                       </h3>
                       <span className="font-mono text-xs opacity-70">{episode.duration}</span>

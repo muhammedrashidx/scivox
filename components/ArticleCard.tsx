@@ -28,7 +28,7 @@ const ArticleCard = ({ slug, image, category, title, author, authorSlug, date }:
         <div className="flex-1 min-w-0">
           <span className="category-badge mb-2">{category}</span>
           
-          <h3 className="font-sans font-bold text-[20px] leading-[24px] mb-2 group-hover:text-primary transition-colors line-clamp-2">
+          <h3 className="font-sans font-bold text-[20px] leading-[24px] mb-2 group-hover:underline transition-colors line-clamp-2">
             {title}
           </h3>
           

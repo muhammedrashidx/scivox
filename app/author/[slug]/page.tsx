@@ -233,7 +233,7 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
                 
                 {/* Title and meta below image */}
                 <div className="pt-4 px-1">
-                  <h3 className="text-base md:text-lg font-bold font-display uppercase leading-tight mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-base md:text-lg font-bold font-display uppercase leading-tight mb-3 group-hover:underline transition-colors">
                     {article.title}
                   </h3>
                   <div className="flex items-center gap-2">

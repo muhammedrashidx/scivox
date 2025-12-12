@@ -17,8 +17,8 @@ interface TopStoriesProps {
 const TopStories = ({ stories }: TopStoriesProps) => {
   return (
     <aside className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-      <h3 className="text-primary font-mono text-sm uppercase tracking-wider mb-4">Top Stories</h3>
-      <div className="border-b border-border mb-6"></div>
+      <h3 className="text-primary font-sans text-[16px] leading-[130%] tracking-[-0.5px] mb-4 font-bold">Top Stories</h3>
+      <div className="border-b border-border/70 mb-6"></div>
       
       <div className="space-y-0 -mt-4">
         {stories.map((story, index) => (
@@ -29,7 +29,7 @@ const TopStories = ({ stories }: TopStoriesProps) => {
             style={{ animationDelay: `${0.1 * (index + 1)}s` }}
           >
             <div className="flex-1 min-w-0">
-              <h4 className="font-sans font-bold text-[20px] leading-[120%] tracking-[-1px] mb-2 text-foreground dark:text-white group-hover:text-primary transition-colors line-clamp-3">
+              <h4 className="font-sans font-bold text-[20px] leading-[120%] tracking-[-1px] mb-2 text-foreground dark:text-white group-hover:underline transition-colors line-clamp-3">
                 {story.title}
               </h4>
               <div className="flex flex-col gap-1">

@@ -92,7 +92,7 @@ export default function Post({ params }: { params: Promise<{ slug: string }> }) 
                   />
                 </div>
                 <span className="category-badge mb-2">{article.category}</span>
-                <h3 className="font-display font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                <h3 className="font-display font-bold text-lg leading-tight group-hover:underline transition-colors">
                   {article.title}
                 </h3>
               </Link>
