@@ -44,8 +44,7 @@ const TopStories = ({ stories }: TopStoriesProps) => {
                 alt={story.title}
                 fill
                 sizes="128px"
-                loading={index === 0 ? "eager" : "lazy"}
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                className="object-cover transition-transform duration-300 md:group-hover:scale-110"
               />
             </div>
           </Link>

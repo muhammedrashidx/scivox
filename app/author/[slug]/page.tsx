@@ -192,7 +192,6 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
                 src={author.image} 
                 alt={author.name}
                 fill
-                priority
                 className="object-cover"
               />
             </div>
@@ -220,7 +219,6 @@ export default async function Author({ params }: { params: Promise<{ slug: strin
                     alt={article.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   

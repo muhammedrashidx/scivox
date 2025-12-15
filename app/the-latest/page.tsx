@@ -43,14 +43,13 @@ export default function TheLatest() {
                     <span className="date-text">{article.date}</span>
                   </div>
                 </div>
-                <div className="relative w-[227px] h-[160px] flex-shrink-0 overflow-hidden">
+                <div className="relative w-32 h-24 md:w-40 md:h-28 lg:w-[227px] lg:h-[160px] flex-shrink-0 overflow-hidden">
                   <Image 
                     src={article.image} 
                     alt={article.title}
                     fill
-                    sizes="227px"
-                    loading="lazy"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 128px, 227px"
+                    className="object-cover transition-transform duration-300 md:group-hover:scale-105"
                   />
                 </div>
               </Link>

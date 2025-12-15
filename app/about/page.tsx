@@ -29,7 +29,7 @@ export default function About() {
                 What We Cover
               </h2>
               <ul className="space-y-4">
-                {["Science & Engineering", "Humanities & Social Sciences", "Climate Change", "Economics", "Policy & Environment"].map((item) => (
+                {["Technology & Gadgets", "Science & Space", "Business & Startups", "Gaming & Entertainment", "Policy & Environment"].map((item) => (
                   <li key={item} className="flex items-center gap-3 font-mono text-sm md:text-base">
                     <span className="w-2 h-2 bg-accent rounded-full" />
                     {item}
@@ -41,7 +41,7 @@ export default function About() {
         </section>
 
         {/* Stats Marquee */}
-        {/* <section className="py-4 bg-secondary overflow-hidden mb-12 lg:mb-16">
+        <section className="py-4 bg-secondary overflow-hidden mb-12 lg:mb-16">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(10)].map((_, i) => (
               <span key={i} className="mx-8 text-muted-foreground font-mono text-sm md:text-base">
@@ -59,7 +59,7 @@ export default function About() {
               </span>
             ))}
           </div>
-        </section> */}
+        </section>
 
         {/* Team Section - Grid like original */}
         <section className="mb-12 lg:mb-16">

@@ -69,16 +69,14 @@ export default function TopicScience() {
               href={`/post/${article.slug}`}
               className="group block"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[16/10] overflow-hidden">
+            {/* Image Container */}
+            <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden">
                 <Image 
                   src={article.image} 
                   alt={article.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "lazy"}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 md:group-hover:scale-105"
                 />
                 
                 {/* Gradient overlay only at bottom for text readability */}
@@ -92,7 +90,7 @@ export default function TopicScience() {
               
               {/* Title - positioned to overlap more into the image */}
               <div className="relative -mt-10 lg:-mt-14 px-4 z-20 max-w-2xl">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black font-display uppercase leading-tight text-foreground drop-shadow-md group-hover:underline">
+                <h3 className="font-tanker font-normal text-[32px] md:text-[40px] lg:text-[48px] leading-[48px] tracking-[-1px] text-foreground drop-shadow-md md:group-hover:underline">
                   {article.title}
                 </h3>
               </div>
@@ -120,7 +118,7 @@ export default function TopicScience() {
             <Link 
               key={index} 
               href={`/post/${article.slug}`}
-              className="group flex gap-6 items-start justify-between"
+              className="group flex gap-6 items-start justify-between py-6 border-b border-border"
             >
               {/* Content on the left */}
               <div className="flex-1">
@@ -139,15 +137,14 @@ export default function TopicScience() {
                 </div>
               </div>
               
-              {/* Small thumbnail on the right */}
-              <div className="relative w-[227px] h-[160px] flex-shrink-0 overflow-hidden">
+              {/* Small thumbnail on the right - match 'The Latest' card sizing */}
+              <div className="relative w-32 h-24 md:w-40 md:h-28 lg:w-[227px] lg:h-[160px] flex-shrink-0 overflow-hidden">
                 <Image 
                   src={article.image} 
                   alt={article.title}
                   fill
-                  sizes="227px"
-                  loading="lazy"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-cover transition-transform duration-500 md:group-hover:scale-105"
                 />
               </div>
             </Link>

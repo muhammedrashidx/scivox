@@ -17,7 +17,7 @@ interface FeaturedArticleProps {
 const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, date, slug }: FeaturedArticleProps) => {
   return (
     <Link href={slug ? `/post/${slug}` : "#"} className="block">
-      <article className="relative group cursor-pointer animate-fade-in hover:scale-100">
+      <article className="relative group cursor-pointer animate-fade-in md:hover:scale-100">
         {/* Image Container */}
         <div className="relative aspect-[4/3] lg:aspect-[16/9] overflow-hidden isolate">
           <Image 
@@ -25,8 +25,7 @@ const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, 
             alt={title}
             fill
             sizes="(max-width: 1024px) 100vw, 66vw"
-            priority
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out md:group-hover:scale-105"
           />
           
           {/* Gradient overlay only at bottom for text readability */}
@@ -40,7 +39,7 @@ const FeaturedArticle = ({ image, category, title, excerpt, author, authorSlug, 
         
         {/* Title - positioned to overlap more into the image */}
         <div className="relative -mt-12 lg:-mt-16 px-6 lg:px-8 z-20 max-w-3xl">
-          <h2 className="text-3xl lg:text-5xl font-black font-display uppercase leading-tight mb-4 text-foreground drop-shadow-md group-hover:underline">
+          <h2 className="font-tanker text-[40px] md:text-[52px] lg:text-[64px] leading-[100%] font-normal tracking-[-1px] mb-4 text-foreground drop-shadow-md md:group-hover:underline">
             {title}
           </h2>
           <p className="text-muted-foreground font-caption text-sm lg:text-base mb-4 max-w-2xl leading-relaxed">

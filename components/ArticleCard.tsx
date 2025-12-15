@@ -21,8 +21,7 @@ const ArticleCard = ({ slug, image, category, title, author, authorSlug, date }:
             alt={title}
             fill
             sizes="(max-width: 768px) 128px, 160px"
-            loading="lazy"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 md:group-hover:scale-105"
           />
         </div>
         

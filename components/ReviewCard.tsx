@@ -16,7 +16,7 @@ interface ReviewCardProps {
 const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: ReviewCardProps) => {
   return (
     <Link href={slug ? `/post/${slug}` : "#"} className="block">
-      <article className="article-card cursor-pointer group hover:scale-100">
+      <article className="article-card cursor-pointer group md:hover:scale-100">
         {/* Image Container */}
         <div className="relative aspect-[16/10] overflow-hidden isolate">
           <Image 
@@ -24,8 +24,7 @@ const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: 
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            loading="lazy"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out md:group-hover:scale-105"
           />
           
           {/* Gradient overlay only at bottom for text readability */}
@@ -39,7 +38,7 @@ const ReviewCard = ({ image, category, title, author, authorSlug, date, slug }: 
         
         {/* Title - positioned to overlap more into the image */}
         <div className="relative -mt-6 lg:-mt-10 px-4 z-20 max-w-xl">
-          <h3 className="font-black font-display text-2xl lg:text-3xl uppercase leading-tight mb-3 text-foreground drop-shadow-md group-hover:underline">
+          <h3 className="font-tanker font-normal text-[32px] md:text-[40px] lg:text-[48px] leading-[48px] tracking-[-1px] mb-3 text-foreground drop-shadow-md md:group-hover:underline">
             {title}
           </h3>
         </div>
