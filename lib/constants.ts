@@ -11,7 +11,7 @@ export const siteConfig = {
   },
   creator: {
     name: "SciVox Team",
-    twitter: "@SciVox",
+    twitter: "@Sci_Vox",
   },
 } as const;
 

@@ -24,9 +24,6 @@ const Header = () => {
               className="h-20 w-auto max-w-[260px] object-contain"
               priority
             />
-            <span className="text-xl md:text-2xl font-bold font-sans leading-none text-foreground">
-              SciVox
-            </span>
           </Link>
 
           {/* Right Side */}

@@ -9,16 +9,16 @@ import { Analytics } from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scivox.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scivox.in';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "SciVox - Scientific voices and communication platform",
+    default: "SciVox",
     template: "%s | SciVox",
   },
-  description: "Scientific voices and communication platform for researchers and academicians.",
-  keywords: ["science communication", "research", "academia", "technology", "innovation"],
+  description: "SciVox is a science communication and research writing platform featuring blogs, articles, reviews, data sharing, and scholarly insights for researchers and the public.",
+  keywords: ["science communication", "research writing", "scientific blogs", "academic articles", "research reviews","open science","data sharing","scientists","public understanding of science","technology", "innovation"],
   authors: [{ name: "SciVox", url: siteUrl }],
   creator: "SciVox",
   publisher: "SciVox",
@@ -32,24 +32,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "SciVox",
-    title: "SciVox - Scientific voices and communication platform",
-    description: "Scientific voices and communication platform for researchers and academicians.",
+    title: "SciVox",
+    description: "A science communication and research writing platform with blogs, articles, reviews, and data sharing for researchers and the public.",
     images: [
       {
-        url: "https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb5aa370ccd0b5df944219_midjourney-main.jpg",
+        url: "/assets/branding/logo_.png",
         width: 1200,
         height: 630,
-        alt: "SciVox - Scientific voices and communication platform",
+        alt: "SciVox",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SciVox - Scientific voices and communication platform",
-    description: "Scientific voices and communication platform for researchers and academicians.",
-    creator: "@SciVox",
-    site: "@SciVox",
-    images: ["https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb5aa370ccd0b5df944219_midjourney-main.jpg"],
+    title: "SciVox",
+    description: "Science communication and research writing platform with blogs, articles, reviews, and open data.",
+    creator: "Sci_Vox",
+    site: "Sci_Vox",
+    images: "/assets/branding/logo_.png",
   },
   robots: {
     index: true,
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/assets/branding/favicon.png",
+    shortcut: "/assets/branding/favicon.png",
+    apple: "/assets/branding/favicon.png",
   },
   verification: {
     // Add your verification codes here when you have them
@@ -83,7 +83,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://scivox.dev" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
