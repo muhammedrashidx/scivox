@@ -1,13 +1,5 @@
-// Import MDX modules directly to extract metadata only
-import * as posts1 from '@/content/posts/climate-ledger.mdx';
-import * as posts2 from '@/content/posts/health-frontiers.mdx';
-import * as posts3 from '@/content/posts/imagination.mdx';
-import * as posts4 from '@/content/posts/launch-window.mdx';
-import * as posts5 from '@/content/posts/mobility-shift.mdx';
-import * as posts6 from '@/content/posts/policy-signals.mdx';
-
-// Extract metadata only (no Content component)
-const postsMetadata = [posts1, posts2, posts3, posts4, posts5, posts6].map(mod => mod.metadata);
+// Import metadata-only (no MDX imports to avoid React context issues)
+import { postsMetadata } from '@/content/metadata';
 
 interface StructuredDataProps {
   type: 'home' | 'article' | 'breadcrumb';

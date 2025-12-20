@@ -1,29 +1,5 @@
 import { MetadataRoute } from 'next';
-
-// Import MDX modules directly to extract metadata only (avoiding Content component)
-import * as posts1 from '@/content/posts/climate-ledger.mdx';
-import * as posts2 from '@/content/posts/health-frontiers.mdx';
-import * as posts3 from '@/content/posts/imagination.mdx';
-import * as posts4 from '@/content/posts/launch-window.mdx';
-import * as posts5 from '@/content/posts/mobility-shift.mdx';
-import * as posts6 from '@/content/posts/policy-signals.mdx';
-
-import * as reviews1 from '@/content/reviews/robot-companion.mdx';
-import * as reviews2 from '@/content/reviews/wireless-audio.mdx';
-
-import * as podcasts1 from '@/content/podcasts/climate-dashboards.mdx';
-import * as podcasts2 from '@/content/podcasts/ethics-ai.mdx';
-import * as podcasts3 from '@/content/podcasts/orbital-habitats.mdx';
-import * as podcasts4 from '@/content/podcasts/signal-noise.mdx';
-
-import * as explainers1 from '@/content/explainers/fusion-101.mdx';
-import * as explainers2 from '@/content/explainers/quantum-basics.mdx';
-
-// Extract metadata only (no Content component)
-const postsMetadata = [posts1, posts2, posts3, posts4, posts5, posts6].map(mod => mod.metadata);
-const reviewsMetadata = [reviews1, reviews2].map(mod => mod.metadata);
-const episodesMetadata = [podcasts1, podcasts2, podcasts3, podcasts4].map(mod => mod.metadata);
-const explainersMetadata = [explainers1, explainers2].map(mod => mod.metadata);
+import { postsMetadata, reviewsMetadata, episodesMetadata, explainersMetadata } from '@/content/metadata';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scivox.in';
