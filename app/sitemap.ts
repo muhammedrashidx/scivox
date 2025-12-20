@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { postsMetadata, reviewsMetadata, episodesMetadata, explainersMetadata } from '@/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scivox.in';
@@ -19,34 +20,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // Add dynamic post routes (you can fetch from your CMS/API)
-  // For now, we'll add some example posts
-  const posts = [
-    'midjourney-imagination',
-    'startups-hiring',
-    'vision-pro-secrets',
-    'chatgpt-growth',
-    'spacex-starship',
-  ].map((slug) => ({
-    url: `${baseUrl}/post/${slug}`,
-    lastModified: new Date(),
+  // Add all post routes dynamically
+  const postRoutes = postsMetadata.map((post) => ({
+    url: `${baseUrl}/post/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  // Add review routes
+  const reviewRoutes = reviewsMetadata.map((review) => ({
+    url: `${baseUrl}/post/${review.slug}`,
+    lastModified: new Date(review.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  // Add explainer routes
+  const explainerRoutes = explainersMetadata.map((explainer) => ({
+    url: `${baseUrl}/post/${explainer.slug}`,
+    lastModified: new Date(explainer.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  // Add podcast/episode routes
+  const episodeRoutes = episodesMetadata.map((episode) => ({
+    url: `${baseUrl}/podcast/${episode.slug}`,
+    lastModified: new Date(episode.date),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
-  // Add author routes
-  const authors = [
-    'thomas-neauer',
-    'michael-pelloti',
-    'bill-rennie',
-    'natalie-lie',
-  ].map((slug) => ({
+  // Get unique authors from all posts
+  const authors = new Set<string>();
+  [...postsMetadata, ...reviewsMetadata, ...explainersMetadata].forEach((item) => {
+    if (item.authorSlug) {
+      authors.add(item.authorSlug);
+    }
+  });
+
+  const authorRoutes = Array.from(authors).map((slug) => ({
     url: `${baseUrl}/author/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.6,
   }));
 
-  return [...routes, ...posts, ...authors];
+  return [...routes, ...postRoutes, ...reviewRoutes, ...explainerRoutes, ...episodeRoutes, ...authorRoutes];
 }
 

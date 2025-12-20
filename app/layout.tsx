@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     default: "SciVox",
     template: "%s | SciVox",
   },
-  description: "SciVox is a science communication and research writing platform featuring blogs, articles, reviews, data sharing, and scholarly insights for researchers and the public.",
-  keywords: ["science communication", "research writing", "scientific blogs", "academic articles", "research reviews","open science","data sharing","scientists","public understanding of science","technology", "innovation"],
+  description: "SciVox - Science Communication Platform | Latest Science News, Technology Articles, Research Reviews & Explainers. Explore cutting-edge research, scientific breakthroughs, and expert insights on science, technology, and innovation.",
+  keywords: ["SciVox", "science communication", "science news", "research writing", "scientific blogs", "academic articles", "research reviews", "open science", "data sharing", "scientists", "public understanding of science", "technology", "innovation", "science explainers", "scientific research", "science journalism"],
   authors: [{ name: "SciVox", url: siteUrl }],
   creator: "SciVox",
   publisher: "SciVox",
@@ -80,11 +80,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scivox.in';
+  
+  // JSON-LD structured data for better SEO
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SciVox",
+    "url": siteUrl,
+    "logo": `${siteUrl}/assets/branding/logo.png`,
+    "description": "SciVox is a science communication and research writing platform featuring blogs, articles, reviews, data sharing, and scholarly insights for researchers and the public.",
+    "sameAs": [
+      "https://twitter.com/Sci_Vox",
+      "https://linkedin.com/company/scivox"
+    ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SciVox",
+    "url": siteUrl,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider

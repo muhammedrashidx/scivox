@@ -7,6 +7,7 @@ import SectionHeader from "@/components/SectionHeader";
 import ReviewCard from "@/components/ReviewCard";
 import ArticleCard from "@/components/ArticleCard";
 import Footer from "@/components/Footer";
+import { StructuredData } from "@/components/StructuredData";
 import Link from "next/link";
 import { posts, reviews } from "@/content";
 
@@ -34,6 +35,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData type="home" />
       <Header />
       
       <main className="container mx-auto px-4 lg:px-8">
