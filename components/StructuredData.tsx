@@ -1,4 +1,13 @@
-import { postsMetadata } from "@/content";
+// Import MDX modules directly to extract metadata only
+import * as posts1 from '@/content/posts/climate-ledger.mdx';
+import * as posts2 from '@/content/posts/health-frontiers.mdx';
+import * as posts3 from '@/content/posts/imagination.mdx';
+import * as posts4 from '@/content/posts/launch-window.mdx';
+import * as posts5 from '@/content/posts/mobility-shift.mdx';
+import * as posts6 from '@/content/posts/policy-signals.mdx';
+
+// Extract metadata only (no Content component)
+const postsMetadata = [posts1, posts2, posts3, posts4, posts5, posts6].map(mod => mod.metadata);
 
 interface StructuredDataProps {
   type: 'home' | 'article' | 'breadcrumb';
@@ -36,7 +45,7 @@ export function StructuredData({ type, article, breadcrumbs }: StructuredDataPro
       },
       "mainEntity": {
         "@type": "ItemList",
-        "itemListElement": postsMetadata.slice(0, 10).map((post, index) => ({
+        "itemListElement": postsMetadata.slice(0, 10).map((post: any, index) => ({
           "@type": "ListItem",
           "position": index + 1,
           "item": {
