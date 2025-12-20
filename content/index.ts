@@ -60,3 +60,10 @@ export const posts: PostWithContent[] = [posts1, posts2, posts3, posts4, posts5,
 export const reviews: ReviewWithContent[] = [reviews1, reviews2].map(shapePosts);
 export const episodes: EpisodeWithContent[] = [podcasts1, podcasts2, podcasts3, podcasts4].map(shapeEpisodes);
 export const explainers: ExplainerWithContent[] = [explainers1, explainers2].map(shapePosts);
+
+// Metadata-only exports for server components (excludes Content component)
+export type PostMetadata = Omit<PostWithContent, 'Content'>;
+export const postsMetadata: PostMetadata[] = [posts1, posts2, posts3, posts4, posts5, posts6].map(mod => mod.metadata as PostMetadata);
+export const reviewsMetadata: PostMetadata[] = [reviews1, reviews2].map(mod => mod.metadata as PostMetadata);
+export const episodesMetadata: Omit<EpisodeWithContent, 'Content'>[] = [podcasts1, podcasts2, podcasts3, podcasts4].map(mod => mod.metadata as Omit<EpisodeWithContent, 'Content'>);
+export const explainersMetadata: PostMetadata[] = [explainers1, explainers2].map(mod => mod.metadata as PostMetadata);

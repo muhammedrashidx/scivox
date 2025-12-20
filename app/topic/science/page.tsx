@@ -1,49 +1,23 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { posts } from "@/content";
 
-const featuredArticles = [
-  {
-    slug: "secs-climate-disclosure",
-    image: "https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb68ce793d58c32da80cc6_secs-thumb-large.jpg",
-    category: "Environment",
-    title: "The SEC's new climate disclosure rule already faces legal challenges",
-    author: "Yasemin James",
-    authorSlug: "yasemin-james",
-    date: "Mar 11, 2024",
-  },
-  {
-    slug: "spacex-starship",
-    image: "https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb6e67b163bff045c3eb72_spacex-thumb-large.jpg",
-    category: "Space",
-    title: "All of the angles on the launch of SpaceX's third Starship flight test",
-    author: "Bill Rennie",
-    authorSlug: "bill-rennie",
-    date: "Mar 3, 2024",
-  },
-];
+// Filter science posts and extract only metadata (exclude Content component)
+const scienceCategories = ["Environment", "Health", "Space", "Science", "Climate"];
+const sciencePosts = posts
+  .filter(post => 
+    scienceCategories.some(cat => 
+      post.category.toLowerCase().includes(cat.toLowerCase())
+    )
+  )
+  .map(({ Content, ...metadata }) => metadata); // Remove Content component
 
-const smallArticles = [
-  {
-    slug: "e-waste-crisis",
-    image: "https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb6db7dbf7de468924d761_chatgpt-thumb-small.jpg",
-    category: "Climate",
-    title: "The world's e-waste has reached a crisis point",
-    author: "Bill Rennie",
-    authorSlug: "bill-rennie",
-    date: "Feb 26, 2024",
-  },
-  {
-    slug: "cancer-drugs-ai",
-    image: "https://cdn.prod.website-files.com/65f8b5873929b1ebc2ab83b3/65fb70053196ef87b3dcde55_robot-thumb-large.jpg",
-    category: "Health",
-    title: "The next generation of cancer drugs will be made by AI",
-    author: "Bill Rennie",
-    authorSlug: "bill-rennie",
-    date: "Feb 26, 2024",
-  },
-];
+const featuredArticles = sciencePosts.slice(0, 2);
+const smallArticles = sciencePosts.slice(2);
 
 export default function TopicScience() {
   return (

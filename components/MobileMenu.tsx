@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Search, X } from "lucide-react";
 
 type Props = { open: boolean; onClose: () => void };
 
@@ -10,19 +11,16 @@ const menuLinks = [
 	{ href: "/", label: "Home" },
 	{ href: "/the-latest", label: "The Latest" },
 	{ href: "/topic/science", label: "Science" },
+	{ href: "/topic/technology", label: "Technology" },
+	{ href: "/explainers", label: "Explainers" },
 	{ href: "/podcast", label: "Podcast" },
 	{ href: "/about", label: "About" },
 ];
 
 export function MobileMenu({ open, onClose }: Props) {
     const dialogRef = useRef<HTMLDivElement>(null);
-    const [height, setHeight] = useState<number>(typeof window !== "undefined" ? window.innerHeight : 0);
-
-    useEffect(() => {
-        const onResize = () => setHeight(window.innerHeight);
-        window.addEventListener("resize", onResize);
-        return () => window.removeEventListener("resize", onResize);
-    }, []);
+    const [searchQuery, setSearchQuery] = useState("");
+    const easing: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
     useEffect(() => {
         if (!open) return;
@@ -43,13 +41,11 @@ export function MobileMenu({ open, onClose }: Props) {
         };
     }, [open]);
 
-    const easing: [number, number, number, number] = [0.76, 0, 0.24, 1];
-    const paths = useMemo(() => {
-        const h = height || 0;
-        const initial = `M100 0 L200 0 L200 ${h} L100 ${h} Q-100 ${h/2} 100 0`;
-        const target = `M100 0 L200 0 L200 ${h} L100 ${h} Q100 ${h/2} 100 0`;
-        return { initial, target };
-    }, [height]);
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        // TODO: Implement search functionality
+        console.log("Search:", searchQuery);
+    };
 
     return (
         <AnimatePresence>
@@ -58,14 +54,14 @@ export function MobileMenu({ open, onClose }: Props) {
                     role="dialog"
                     aria-modal="true"
                     id="site-mobile-menu"
-                    className="fixed inset-0 z-[60] overflow-x-hidden"
+                    className="fixed inset-0 z-[70] overflow-x-hidden"
                     ref={dialogRef}
                 >
                     <motion.div 
                         className="absolute inset-0 bg-black/40" 
                         initial={{ opacity: 0 }} 
                         animate={{ opacity: 1, transition: { duration: 0.3 } }} 
-                        exit={{ opacity: 0, transition: { duration: 0.25 } }} 
+                        exit={{ opacity: 0, transition: { duration: 0.5, delay: 0.2 } }} 
                         onClick={onClose} 
                     />
 
@@ -74,56 +70,110 @@ export function MobileMenu({ open, onClose }: Props) {
                         variants={{
                             initial: { x: "calc(100% + 100px)" },
                             enter: { x: 0, transition: { duration: 0.8, ease: easing } },
-                            exit: { x: "calc(100% + 100px)", transition: { duration: 0.8, ease: easing } }
+                            exit: { x: "calc(100% + 100px)", transition: { duration: 0.5, ease: easing } }
                         }} 
                         initial="initial" 
                         animate="enter" 
                         exit="exit"
                     >
-                        <svg 
-                            className="absolute top-0 -left-[99px] w-[100px] h-full fill-[#292929] pointer-events-none" 
-                            viewBox={`0 0 200 ${Math.max(height,1)}`} 
-                            preserveAspectRatio="none"
-                        >
-                            <motion.path 
-                                initial={{ d: paths.initial }} 
-                                animate={{ d: paths.target, transition: { duration: 1, ease: easing } }} 
-                                exit={{ d: paths.initial, transition: { duration: 0.8, ease: easing } }} 
-                            />
-                        </svg>
-
-                        {/* Scrollable content area */}
-                        <div className="flex-1 overflow-y-auto overflow-x-hidden px-8 sm:px-12 py-8">
-                            <div className="flex flex-col mt-12">
-                                <div className="uppercase text-xs tracking-widest text-neutral-400 border-b border-neutral-500/60 pb-7 mb-8">
-                                    Navigation
-                                </div>
-                                <nav aria-label="Overlay" className="flex flex-col gap-3 text-[44px] leading-tight">
-                                    {menuLinks.map((l, i) => (
-                                        <motion.div 
-                                            key={l.href} 
-                                            initial={{ x: 80 }} 
-                                            animate={{ x: 0, transition: { duration: 0.8, ease: easing, delay: 0.05 * i } }} 
-                                            exit={{ x: 80, transition: { duration: 0.8, ease: easing, delay: 0.05 * i } }}
-                                        >
-                                            <Link 
-                                                href={l.href} 
-                                                onClick={onClose} 
-                                                className="font-light text-white hover:text-neutral-300 transition-colors outline-none"
-                                            >
-                                                {l.label}
-                                            </Link>
-                                        </motion.div>
-                                    ))}
-                                </nav>
+                        {/* Header with Search and Close Button */}
+                        <div className="px-6 sm:px-8 py-6 border-b border-neutral-700/60">
+                            <div className="flex items-start gap-3">
+                                {/* Search Bar */}
+                                <form onSubmit={handleSearch} className="relative flex-1">
+                                    <input
+                                        type="text"
+                                        placeholder="Search"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        className="w-full bg-white/10 border border-neutral-600/50 rounded-lg px-4 py-3 pl-10 pr-4 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                                    />
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
+                                </form>
+                                
+                                {/* Close Button */}
+                                <button
+                                    onClick={onClose}
+                                    className="w-12 h-12 rounded-full bg-[#d41c2e] hover:bg-[#b01626] flex items-center justify-center transition-colors duration-200 outline-none flex-shrink-0"
+                                    aria-label="Close menu"
+                                >
+                                    <X className="w-6 h-6 text-white" />
+                                </button>
                             </div>
                         </div>
 
-                        {/* Fixed footer at bottom */}
-                        <div className="flex-shrink-0 px-8 sm:px-12 pb-8 flex items-center justify-between text-xs text-neutral-300 gap-6">
-                            <a href="#" className="hover:text-white transition-colors">Twitter/X</a>
-                            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+                        {/* Navigation Links */}
+                        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+                            <nav aria-label="Mobile navigation" className="px-6 sm:px-8 py-6">
+                                {menuLinks.map((link, index) => (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, x: 80 }}
+                                        animate={{ 
+                                            opacity: 1, 
+                                            x: 0, 
+                                            transition: { 
+                                                duration: 0.8, 
+                                                delay: index * 0.05,
+                                                ease: easing
+                                            } 
+                                        }}
+                                        exit={{ 
+                                            opacity: 0, 
+                                            x: 80, 
+                                            transition: { 
+                                                duration: 0.3,
+                                                delay: (menuLinks.length - index - 1) * 0.03,
+                                                ease: easing
+                                            } 
+                                        }}
+                                    >
+                                        <Link
+                                            href={link.href}
+                                            onClick={onClose}
+                                            className="block py-4 text-2xl font-medium text-white hover:text-neutral-300 border-b border-neutral-700/60 transition-colors outline-none"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </nav>
+                        </div>
+
+                        {/* Footer with Social Links */}
+                        <div className="flex-shrink-0 px-6 sm:px-8 py-6 border-t border-neutral-700/60">
+                            <div className="flex items-center justify-center gap-8 text-sm text-neutral-400">
+                                <a 
+                                    href="#" 
+                                    className="hover:text-white transition-colors"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        // TODO: Add social links
+                                    }}
+                                >
+                                    Twitter/X
+                                </a>
+                                <a 
+                                    href="#" 
+                                    className="hover:text-white transition-colors"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        // TODO: Add social links
+                                    }}
+                                >
+                                    Instagram
+                                </a>
+                                <a 
+                                    href="#" 
+                                    className="hover:text-white transition-colors"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        // TODO: Add social links
+                                    }}
+                                >
+                                    LinkedIn
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
                 </div>

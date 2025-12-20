@@ -20,6 +20,8 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "The Latest", href: "/the-latest" },
   { label: "Science", href: "/topic/science" },
+  { label: "Technology", href: "/topic/technology" },
+  { label: "Explainers", href: "/explainers" },
   { label: "Podcast", href: "/podcast" },
   { label: "About", href: "/about" },
 ] as const;

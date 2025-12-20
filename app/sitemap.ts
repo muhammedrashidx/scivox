@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/the-latest',
     '/topic/science',
+    '/topic/technology',
+    '/explainers',
     '/podcast',
     '/about',
   ].map((route) => ({
